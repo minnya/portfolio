@@ -4,10 +4,12 @@ import { ReactRouterAppProvider } from "@toolpad/core/react-router";
 import { DashboardLayout, PageContainer } from "@toolpad/core";
 import { CardMedia } from "@mui/material";
 import { Header } from "./widgets/Header";
+import { NAVIGATION } from "./components/Navigation";
 
 const App = () => {
   return (
     <ReactRouterAppProvider
+      navigation={NAVIGATION}
       branding={{
         title: "Hiro Miyoshi",
         logo: (

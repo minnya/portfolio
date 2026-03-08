@@ -1,29 +1,26 @@
-import { createHashRouter, Navigate } from "react-router";
+import { createHashRouter } from "react-router";
+import type { RouteMeta } from "../models/RouteMeta";
+import type { RouteObject } from "react-router";
+import { ROUTES } from "../data/RouteData";
 import App from "../App";
-import { ShowcasePage } from "../pages/ShowcasePage";
+
+function mapRoutes(routes: RouteMeta[]): RouteObject[] {
+  return routes.map((r) => {
+    if (r.index) {
+      return { index: true, element: r.element };
+    }
+    return {
+      path: r.path,
+      element: r.element,
+      children: r.children ? mapRoutes(r.children) : undefined,
+    };
+  });
+}
 
 const router = createHashRouter([
   {
     element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="about" replace />,
-      },
-      {
-        index: true,
-        path: "about",
-        element: <ShowcasePage />,
-      },
-      {
-        path: "showcase",
-        element: <ShowcasePage />,
-      },
-      {
-        path: "blog",
-        element: <ShowcasePage />,
-      },
-    ],
+    children: mapRoutes(ROUTES),
   },
 ]);
 
