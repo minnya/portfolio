@@ -35,10 +35,12 @@ export const Header: React.FC = () => {
       <SocialIcon
         url="https://www.linkedin.com/in/hirokazumiyoshi/"
         style={{ height: ICON_SIZE, width: ICON_SIZE }}
+        target="_blank"
       />
       <SocialIcon
         url="https://github.com/minnya"
         style={{ height: ICON_SIZE, width: ICON_SIZE }}
+        target="_blank"
       />
     </Box>
   );
