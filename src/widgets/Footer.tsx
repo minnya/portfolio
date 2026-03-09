@@ -2,9 +2,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { useTheme } from "@mui/material";
 
 export const Footer: React.FC = () => {
+  const theme = useTheme();
   return (
     <Box
       component="footer"
@@ -12,13 +13,14 @@ export const Footer: React.FC = () => {
         py: 2,
         mt: 4,
         textAlign: "center",
+        height: 50,
+        borderTop: 1,
+        borderColor: "divider",
       }}
     >
-      <Container>
-        <Typography variant="body2" color="textSecondary">
-          © 2026 Crushing C.O.D.E
-        </Typography>
-      </Container>
+      <Typography variant="body2" color="textSecondary">
+        © {new Date().getFullYear()} Hirokazu Miyoshi
+      </Typography>
     </Box>
   );
 };
