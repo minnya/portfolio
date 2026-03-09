@@ -24,8 +24,11 @@ export const Header: React.FC = () => {
       {ROUTES.filter((r) => r.nav).map((r) => (
         <Link
           key={r.nav!.segment}
-          color={location.pathname.includes(r.nav!.segment!) ? "primary" : "inherit"}
+          color={
+            location.pathname.includes(r.nav!.segment!) ? "primary" : "inherit"
+          }
           href={`#/${r.nav!.segment}`}
+          underline="none"
         >
           {r.nav!.title}
         </Link>
