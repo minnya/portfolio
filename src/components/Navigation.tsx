@@ -26,7 +26,6 @@ function extractNavigation(routes: RouteMeta[]): NavigationModel {
 
       if (r.children) {
         const childNav = extractNavigation(r.children);
-        console.log(childNav);
         if (childNav.length > 0) {
           item.children = childNav;
         }
