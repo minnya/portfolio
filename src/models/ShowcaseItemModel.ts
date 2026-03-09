@@ -3,5 +3,8 @@ export interface ShowcaseItemModel {
   title: string;
   image: string;
   description: string;
-  url: string;
+  googlePlayUrl?: string;
+  websiteUrl?: string;
+  githubUrl?: string;
+  tags?: string[];
 }

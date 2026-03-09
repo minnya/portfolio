@@ -7,6 +7,7 @@ import { Header } from "./widgets/Header";
 import { NAVIGATION } from "./components/Navigation";
 
 const App = () => {
+  console.log(NAVIGATION);
   return (
     <ReactRouterAppProvider
       navigation={NAVIGATION}

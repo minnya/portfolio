@@ -25,17 +25,29 @@ export const ROUTES: RouteMeta[] = [
       title: "Showcase",
       segment: "showcase",
     },
+    children: [
+      {
+        path: ":category",
+        nav: {
+          title: "Category",
+          segment: "category",
+        },
+        children: [
+          {
+            path: ":id",
+            element: <ShowcaseDetailPage />,
+            nav: {
+              title: "Detail",
+              segment: "detail",
+            },
+          },
+        ],
+      },
+    ],
   },
-  {
-    path: "showcase/:id",
-    element: <ShowcaseDetailPage />,
-  },
+
   {
     path: "blog",
     element: <BlogPage />,
-    nav: {
-      title: "Blog",
-      segment: "blog",
-    },
   },
 ];

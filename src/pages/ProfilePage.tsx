@@ -30,7 +30,7 @@ export const ProfilePage: React.FC = () => {
           Software Engineer
         </Typography>
         <Typography variant="body1" color="textSecondary">
-          Python, React Typescript, Azure etc.
+          Python, FastAPI, React Typescript, Azure etc.
         </Typography>
       </Box>
       <Box>

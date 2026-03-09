@@ -1,13 +1,17 @@
-import { Box, Button, CardMedia, Chip, Typography } from "@mui/material";
-import { showcaseItems } from "../data/ShowcaseData";
+import { Box, Button, CardMedia, Chip, Link, Typography } from "@mui/material";
+import { showcaseCategoryItems } from "../data/ShowcaseData";
 import { useParams } from "react-router";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import MuiMarkdown, { defaultOverrides } from "mui-markdown";
 
 export const ShowcaseDetailPage: React.FC = () => {
-  const { id } = useParams();
-  const item = showcaseItems.find((item) => item.id === id);
+  const { category, id } = useParams();
+  const categoryItem = showcaseCategoryItems.find(
+    (item) => item.category === category,
+  );
+  const showcaseItem = categoryItem?.items.find((item) => item.id == id);
 
-  if (!item) {
+  if (!showcaseItem) {
     return <Typography>Item not found</Typography>;
   }
 
@@ -17,31 +21,72 @@ export const ShowcaseDetailPage: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 3,
+        gap: 2,
       }}
     >
       <CardMedia
         component="img"
-        src={item.image}
+        src={showcaseItem.image}
         sx={{ height: 300, objectFit: "contain", borderRadius: 3 }}
       />
       <Typography variant="h4" fontWeight="bold">
-        {item.title}
+        {showcaseItem.title}
       </Typography>
-      <Chip label="Android" size="small" sx={{ width: "fit-content" }} />
-      <Typography variant="body1" color="text.secondary">
-        {item.description}
-      </Typography>
-      <Button
-        variant="contained"
-        endIcon={<OpenInNewIcon />}
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{ width: "fit-content" }}
+      <Box>
+        {showcaseItem.tags?.map((tag) => (
+          <Chip
+            label={tag}
+            size="small"
+            sx={{ width: "fit-content", mx: 0.5 }}
+          />
+        ))}
+      </Box>
+      {showcaseItem.googlePlayUrl && (
+        <Button
+          variant="contained"
+          endIcon={<OpenInNewIcon />}
+          href={showcaseItem.googlePlayUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{ width: "fit-content" }}
+        >
+          Google Play
+        </Button>
+      )}
+      {showcaseItem.githubUrl && (
+        <Button
+          variant="contained"
+          endIcon={<OpenInNewIcon />}
+          href={showcaseItem.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{ width: "fit-content" }}
+        >
+          Github Repository
+        </Button>
+      )}
+      {showcaseItem.websiteUrl && (
+        <Button
+          variant="contained"
+          endIcon={<OpenInNewIcon />}
+          href={showcaseItem.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{ width: "fit-content" }}
+        >
+          Website
+        </Button>
+      )}
+      <MuiMarkdown
+        overrides={{
+          ...defaultOverrides,
+          a: ({ ...props }) => (
+            <Link {...props} target="_blank" rel="noopener noreferrer" />
+          ),
+        }}
       >
-        Google Play
-      </Button>
+        {showcaseItem.description}
+      </MuiMarkdown>
     </Box>
   );
 };
