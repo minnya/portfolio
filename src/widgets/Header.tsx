@@ -24,7 +24,9 @@ export const Header: React.FC = () => {
         <Link
           key={r.nav!.segment}
           color={
-            location.pathname.includes(r.nav!.segment!) ? "primary" : "inherit"
+            location.pathname.includes(r.nav!.segment!)
+              ? "primary"
+              : "textDisabled"
           }
           href={`#/${r.nav!.segment}`}
           underline="none"
