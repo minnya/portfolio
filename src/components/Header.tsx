@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
               ? "primary"
               : "textDisabled"
           }
-          href={`#/${r.nav!.segment}`}
+          href={r.nav!.segment}
           underline="none"
         >
           {r.nav!.title}

@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router";
+import { createBrowserRouter } from "react-router";
 import type { RouteMeta } from "../models/RouteMeta";
 import type { RouteObject } from "react-router";
 import { ROUTES } from "../data/RouteData";
@@ -17,7 +17,7 @@ function mapRoutes(routes: RouteMeta[]): RouteObject[] {
   });
 }
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     element: <App />,
     children: mapRoutes(ROUTES),
