@@ -27,7 +27,7 @@ export const ProfilePage: React.FC = () => {
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
         <Typography variant="body1" fontWeight="bold">
-          Software Engineer
+          Full Stack Software Engineer
         </Typography>
         <Typography variant="body1" color="textSecondary">
           Python, FastAPI, React Typescript, Azure etc.

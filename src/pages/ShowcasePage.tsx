@@ -16,30 +16,41 @@ export const ShowcasePage: React.FC = () => {
   const location = useLocation();
   if (!location.pathname.endsWith("/showcase")) return <Outlet />;
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
       {showcaseCategoryItems.map((categoryItem) => (
         <Box>
           <Typography variant="h5" fontWeight="bold">
             {categoryItem.category}
           </Typography>
 
-          <Grid container spacing={2}>
+          <Grid container spacing={2} alignItems="stretch">
             {categoryItem.items.map((showcaseItem) => (
               <Grid size={{ sm: 6, md: 3 }}>
-                <Card variant="outlined" sx={{ borderRadius: 3 }}>
+                <Card
+                  variant="outlined"
+                  sx={{
+                    borderRadius: 3,
+                    height: "100%",
+                  }}
+                >
                   <CardActionArea
                     onClick={() =>
                       navigate(
                         `/showcase/${categoryItem.category}/${showcaseItem.id}`,
                       )
                     }
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
                   >
                     <CardMedia
                       component="img"
                       src={showcaseItem.image}
                       sx={{ objectFit: "contain" }}
                     />
-                    <CardContent>
+                    <CardContent sx={{ flex: 1, width: "100%" }}>
                       <Typography variant="h6">{showcaseItem.title}</Typography>
                       {showcaseItem.tags?.map((tag) => (
                         <Chip

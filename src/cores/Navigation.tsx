@@ -43,8 +43,8 @@ function extractNavigation(routes: RouteMeta[]): NavigationModel {
 
 export const NAVIGATION: Navigation = [
   {
-    kind: "header",
-    title: "Main items",
+    title: "Home",
+    segment: "",
+    children: extractNavigation(ROUTES),
   },
-  ...extractNavigation(ROUTES),
 ];

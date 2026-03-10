@@ -3,6 +3,7 @@ import { showcaseCategoryItems } from "../data/ShowcaseData";
 import { useParams } from "react-router";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import MuiMarkdown, { defaultOverrides } from "mui-markdown";
+import { SocialIcon } from "react-social-icons";
 
 export const ShowcaseDetailPage: React.FC = () => {
   const { category, id } = useParams();
@@ -41,47 +42,43 @@ export const ShowcaseDetailPage: React.FC = () => {
           />
         ))}
       </Box>
-      {showcaseItem.googlePlayUrl && (
-        <Button
-          variant="contained"
-          endIcon={<OpenInNewIcon />}
-          href={showcaseItem.googlePlayUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ width: "fit-content" }}
-        >
-          Google Play
-        </Button>
-      )}
-      {showcaseItem.githubUrl && (
-        <Button
-          variant="contained"
-          endIcon={<OpenInNewIcon />}
-          href={showcaseItem.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ width: "fit-content" }}
-        >
-          Github Repository
-        </Button>
-      )}
-      {showcaseItem.websiteUrl && (
-        <Button
-          variant="contained"
-          endIcon={<OpenInNewIcon />}
-          href={showcaseItem.websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ width: "fit-content" }}
-        >
-          Website
-        </Button>
-      )}
+      <Box display="flex" gap={1}>
+        {[
+          { title: "Google Play", url: showcaseItem.googlePlayUrl },
+          { title: "Github", url: showcaseItem.githubUrl },
+          { title: "Website", url: showcaseItem.websiteUrl },
+        ].map(
+          (item) =>
+            item.url && (
+              <Button
+                variant="outlined"
+                href={item.url}
+                target="_blank"
+                startIcon={
+                  <SocialIcon
+                    url={item.url}
+                    style={{ height: 30, width: 30 }}
+                    target="_blank"
+                  />
+                }
+                endIcon={<OpenInNewIcon />}
+              >
+                {item.title}
+              </Button>
+            ),
+        )}
+      </Box>
       <MuiMarkdown
         overrides={{
           ...defaultOverrides,
           a: ({ ...props }) => (
             <Link {...props} target="_blank" rel="noopener noreferrer" />
+          ),
+          h4: ({ ...props }) => (
+            <Typography
+              {...props}
+              sx={{ fontFamily: "Segoe UI", fontSize: 20 }}
+            />
           ),
         }}
       >

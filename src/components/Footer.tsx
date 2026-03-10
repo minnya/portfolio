@@ -7,12 +7,10 @@ export const Footer: React.FC = () => {
     <Box
       component="footer"
       sx={{
-        py: 2,
+        py: 4,
         mt: 4,
         textAlign: "center",
-        height: 50,
-        borderTop: 1,
-        borderColor: "divider",
+        backgroundColor: "ButtonFace",
       }}
     >
       <Typography variant="body2" color="textSecondary">

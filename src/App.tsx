@@ -2,13 +2,18 @@ import { Footer } from "./components/Footer";
 import { Outlet } from "react-router";
 import { ReactRouterAppProvider } from "@toolpad/core/react-router";
 import { DashboardLayout, PageContainer } from "@toolpad/core";
-import { CardMedia } from "@mui/material";
+import { CardMedia, createTheme } from "@mui/material";
 import { Header } from "./components/Header";
 import { NAVIGATION } from "./cores/Navigation";
 
 const App = () => {
+  const theme = createTheme({
+    typography: { fontFamily: `Segoe UI` },
+    palette: { primary: { main: "#444" } },
+  });
   return (
     <ReactRouterAppProvider
+      theme={theme}
       navigation={NAVIGATION}
       branding={{
         title: "Hiro Miyoshi",
@@ -22,12 +27,11 @@ const App = () => {
       }}
     >
       <DashboardLayout hideNavigation slots={{ toolbarActions: Header }}>
-        <PageContainer>
+        <PageContainer sx={{ flex: 1 }}>
           <Outlet />
         </PageContainer>
+        <Footer />
       </DashboardLayout>
-
-      <Footer />
     </ReactRouterAppProvider>
   );
 };
