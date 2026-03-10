@@ -32,7 +32,7 @@ It supports both Web and Android platforms, allowing users to communicate in rea
 \`Orange Chat\` is more than just a chat app — it’s a platform that **manages community quality through its system while allowing genuine interaction**.  
 It provides a safe, fun, and modern online communication experience.`,
         websiteUrl: "https://revealme.hrkaz.com/",
-        image: "orange-chat.png",
+        image: "/orange-chat.png",
         tags: [
           "Flutter",
           "Dart",
@@ -68,7 +68,7 @@ ShowMeLyrics is a mobile app that displays synchronized song lyrics while music 
         `,
         googlePlayUrl:
           "https://play.google.com/store/apps/details?id=com.minnya.showmelyrics",
-        image: "automatic-lyrics.png",
+        image: "/automatic-lyrics.png",
         tags: ["Java", "Android SDK", "Gradle", "Node.js"],
       },
       {
@@ -94,7 +94,7 @@ YamadaVoice is a voice‑based utility app that offers pronunciation support and
         `,
         googlePlayUrl:
           "https://play.google.com/store/apps/details?id=com.minnya.yamadavoice",
-        image: "yamada-voice.png",
+        image: "/yamada-voice.png",
         tags: ["Java", "Android SDK", "Gradle"],
       },
       {
@@ -119,7 +119,7 @@ SatakeVoice is a voice playback app that provides spoken feedback for phrases an
         `,
         googlePlayUrl:
           "https://play.google.com/store/apps/details?id=com.FreshEngine.satake_voice",
-        image: "satake-voice.png",
+        image: "/satake-voice.png",
         tags: ["Java", "Android SDK", "Gradle"],
       },
     ],
@@ -148,7 +148,7 @@ SatakeVoice is a voice playback app that provides spoken feedback for phrases an
 - **WebRTC**: Peer-to-peer communication protocol for audio and video calls.
 - **PostgreSQL**: Database used by Supabase for storing users and call session data.
         `,
-        image: "supabase-webrtc.png",
+        image: "/supabase-webrtc.png",
         githubUrl: "https://github.com/minnya/sample-supabase-webrtc",
         websiteUrl: "http://webrtc.hrkaz.com/",
         tags: ["Supabase", "Flutter", "Dart"],
@@ -172,7 +172,7 @@ This component is ideal for portfolios, side projects, or any application where 
 The library is open-source under the MIT license and is fully documented on [GitHub](https://github.com/minnya/react-currency-converter-widget).`,
 
         githubUrl: "https://github.com/minnya/react-currency-converter-widget",
-        image: "currency-converter.png",
+        image: "/currency-converter.png",
         tags: ["React", "Typescript", "Vite"],
       },
     ],

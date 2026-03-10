@@ -2,7 +2,7 @@ import { Footer } from "./components/Footer";
 import { Outlet } from "react-router";
 import { ReactRouterAppProvider } from "@toolpad/core/react-router";
 import { DashboardLayout, PageContainer } from "@toolpad/core";
-import { CardMedia, createTheme } from "@mui/material";
+import { CardMedia, createTheme, Fade } from "@mui/material";
 import { Header } from "./components/Header";
 import { NAVIGATION } from "./cores/Navigation";
 
@@ -20,16 +20,18 @@ const App = () => {
         logo: (
           <CardMedia
             component="img"
-            src="avatar.jpg"
+            src="/avatar.jpg"
             sx={{ borderRadius: "50%", height: 30 }}
           />
         ),
       }}
     >
       <DashboardLayout hideNavigation slots={{ toolbarActions: Header }}>
-        <PageContainer sx={{ flex: 1 }}>
-          <Outlet />
-        </PageContainer>
+        <Fade in={true}>
+          <PageContainer sx={{ flex: 1 }}>
+            <Outlet />
+          </PageContainer>
+        </Fade>
         <Footer />
       </DashboardLayout>
     </ReactRouterAppProvider>
