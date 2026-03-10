@@ -1,10 +1,10 @@
-import { Footer } from "./widgets/Footer";
+import { Footer } from "./components/Footer";
 import { Outlet } from "react-router";
 import { ReactRouterAppProvider } from "@toolpad/core/react-router";
 import { DashboardLayout, PageContainer } from "@toolpad/core";
 import { CardMedia } from "@mui/material";
-import { Header } from "./widgets/Header";
-import { NAVIGATION } from "./components/Navigation";
+import { Header } from "./components/Header";
+import { NAVIGATION } from "./cores/Navigation";
 
 const App = () => {
   return (
