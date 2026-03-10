@@ -25,7 +25,7 @@ export const ShowcasePage: React.FC = () => {
 
           <Grid container spacing={2}>
             {categoryItem.items.map((showcaseItem) => (
-              <Grid size={{ sm: 6, md: 4 }}>
+              <Grid size={{ sm: 6, md: 3 }}>
                 <Card variant="outlined" sx={{ borderRadius: 3 }}>
                   <CardActionArea
                     onClick={() =>
